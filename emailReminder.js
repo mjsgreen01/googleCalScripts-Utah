@@ -96,7 +96,7 @@ function checkReminder() {
   
   
   // Loop over the days left till movein values
-  for (var i = 0; i <= numRows - 1; i++) {
+  for (var i = 0; i <= numRows; i++) {
     var days_left = days_left_values[i][0];
     if(days_left == 5) {
       // if it's exactly 5, do something with the data.
@@ -118,7 +118,7 @@ function checkReminder() {
   
   
     // Loop over the days left till movein values
-  for (var i = 0; i <= numRows - 1; i++) {
+  for (var i = 0; i <= numRows; i++) {
     var days_left = days_left_values[i][0];
     if(days_left == 1) {
       // if it's exactly 1, do something with the data.
@@ -140,7 +140,7 @@ function checkReminder() {
   
   
   // Loop over the days left till movein values
-  for (var i = 0; i <= numRows - 1; i++) {
+  for (var i = 0; i <= numRows; i++) {
     var days_left = days_left_values[i][0];
     if(days_left == 14) {
       // if it's exactly 14, do something with the data.
@@ -162,7 +162,7 @@ function checkReminder() {
   
   
   // Loop over the days left till movein values
-  for (var i = 0; i <= numRows - 1; i++) {
+  for (var i = 0; i <= numRows; i++) {
     var days_left = days_left_values[i][0];
     if(days_left == 60) {
       // if it's exactly 60, do something with the data.
