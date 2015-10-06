@@ -85,19 +85,8 @@ function checkReminder() {
   var emailsList = "mjsgreen01@gmail.com,dmj133@juno.com,sdmjgreen@gmail.com,kris_aoay@yahoo.com,jsw.weinberg@gmail.com";
   var emailSubject = "Green House Rental Reminder";
   var warning_count = 0;
-  var warning_count2 = 0;
-  var warning_count3 = 0;
-  var warning_count4 = 0;
-  var warning_count5 = 0;
-  var warning_count6 = 0;
-  var warning_count7 = 0;
   var msg = "";
-  var msg2 = "";
-  var msg3 = "";
-  var msg4 = "";
-  var msg5 = "";
-  var msg6 = "";
-  var msg7 = "";
+  var message = "";
   var days_left_message = "";
 
   var constructMessage = function(movingIn, reminder_name, days_left, moveIn){
@@ -114,15 +103,15 @@ function checkReminder() {
     }
 
     if(movingIn){
-      var message = "Reminder: "+reminder_name+" will arrive at the Green's house "+days_left_message+", on "+moveIn+".\n";
+      message = "Reminder: "+reminder_name+" will arrive at the Green's house "+days_left_message+", on "+moveIn+".\n";
     }else{
-      var message = "Reminder: "+reminder_name+" will check OUT of the Green's house "+days_left_message+", on "+moveIn+".\n";
+      message = "Reminder: "+reminder_name+" will check OUT of the Green's house "+days_left_message+", on "+moveIn+".\n";
     }
     return message;
   };
 
   var checkAndSendMovein = function(movingIn, daysLeft){
-    var warning_count = 0;
+    warning_count = 0;
     // Loop over the days left till movein values
     for (var i = 0; i <= numRows-1; i++) {
       var days_left = days_left_movein[i][0];
@@ -145,7 +134,7 @@ function checkReminder() {
   };
 
   var checkAndSendMoveout = function(movingIn, daysLeft){
-    var warning_count = 0;
+    warning_count = 0;
     // Loop over the days left till moveout values
     for (var i = 0; i <= numRows-1; i++) {
       var days_left_out = days_left_moveout[i][0];
@@ -198,4 +187,4 @@ function checkReminder() {
 
   
   
-};
+}
