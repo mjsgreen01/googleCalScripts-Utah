@@ -118,6 +118,7 @@ function checkReminder() {
   };
 
   var checkAndSendMovein = function(daysLeft){
+    var warning_count = 0;
     // Loop over the days left till movein values
     for (var i = 0; i <= numRows-1; i++) {
       var days_left = days_left_movein[i][0];
