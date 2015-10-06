@@ -140,115 +140,21 @@ function checkReminder() {
 
   };
   
-  checkAndSendMovein(5);
 
-  // Loop over the days left till movein values
-  for (var i = 0; i <= numRows-1; i++) {
-    var days_left = days_left_movein[i][0];
-    if(days_left == 5) {
-      // if it's exactly 5, do something with the data.
-      var reminder_name = guestNames[i][0];
-      var moveIn = moveInDate[i][0];
-      
-      msg = msg + "Reminder: "+reminder_name+" will arrive at the  Green's house in "+days_left+" days, on "+moveIn+".\n";
-      warning_count++;
-    }
-  }
-  
-  //send the email if specified # of days are left
-  if(warning_count) {
-    MailApp.sendEmail(emailsList, 
-        emailSubject, msg);
-  }
+
+  checkAndSendMovein(1);
   
   
+  checkAndSendMovein(5);
   
   
-    // Loop over the days left till movein values
-  for (var i = 0; i <= numRows-1; i++) {
-    var days_left = days_left_movein[i][0];
-    if(days_left == 1) {
-      // if it's exactly 1, do something with the data.
-      var reminder_name = guestNames[i][0];
-      var moveIn = moveInDate[i][0];
-      
-      msg6 = msg6 + "Reminder: "+reminder_name+" will arrive at the  Green's house tomorrow, on "+moveIn+".\n";
-      warning_count6++;
-    }
-  }
+  checkAndSendMovein(14);
   
-  //send the email if specified # of days are left
-  if(warning_count6) {
-    MailApp.sendEmail(emailsList, 
-        emailSubject, msg6);
-  }
-  
-  
-  
-  
-  // Loop over the days left till movein values
-  for (var i = 0; i <= numRows-1; i++) {
-    var days_left = days_left_movein[i][0];
-    if(days_left == 14) {
-      // if it's exactly 14, do something with the data.
-      var reminder_name = guestNames[i][0];
-      var moveIn = moveInDate[i][0];
-      
-      msg5 = msg5 + "Reminder: "+reminder_name+" will arrive at the  Green's house in two weeks, on "+moveIn+".\n";
-      warning_count5++;
-    }
-  }
-  
-  //send the email if specified # of days are left
-  if(warning_count5) {
-    MailApp.sendEmail(emailsList, 
-        emailSubject, msg5);
-  }
-  
-  
-  
-  
-  // Loop over the days left till movein values
-  for (var i = 0; i <= numRows-1; i++) {
-    var days_left = days_left_movein[i][0];
-    if(days_left == 60) {
-      // if it's exactly 60, do something with the data.
-      var reminder_name = guestNames[i][0];
-      var moveIn = moveInDate[i][0];
-      
-      msg3 = msg3 + "Reminder: "+reminder_name+" will arrive at the Green's house in two months, on "+moveIn+".\n";
-      warning_count3++;
-    }
-  }
-  
-  //send the email if specified # of days are left
-  if(warning_count3) {
-    MailApp.sendEmail(emailsList, 
-        emailSubject, msg3);
-  }
-  
-  
-  
-  
-  
-    // Loop over the days left till movein values
-  for (var i = 0; i <= numRows-1; i++) {
-    var days_left = days_left_movein[i][0];
-    if(days_left == 30) {
-      // if it's exactly 30, do something with the data.
-      var reminder_name = guestNames[i][0];
-      var moveIn = moveInDate[i][0];
-      
-      msg4 = msg4 + "Reminder: "+reminder_name+" will arrive at the Green's house in one month, on "+moveIn+".\n";
-      warning_count4++;
-    }
-  }
-  
-  //send the email if specified # of days are left
-  if(warning_count4) {
-    MailApp.sendEmail(emailsList, 
-        emailSubject, msg4);
-  }
+
+  checkAndSendMovein(30);
+
+
+  checkAndSendMovein(60);
   
   
   
