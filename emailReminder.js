@@ -29,6 +29,9 @@ function onOpen() {
   var entries = [{
     name : "Read Data",
     functionName : "readRows"
+  },{
+    name : "Check Reminders",
+    functionName : "checkReminder"
   }];
   spreadsheet.addMenu("Script Center Menu", entries);
 }
@@ -95,8 +98,49 @@ function checkReminder() {
   var msg5 = "";
   var msg6 = "";
   var msg7 = "";
+  var days_left_message = "";
+
+  var constructMessage = function(reminder_name, days_left, moveIn){
+    if(days_left === 1){
+      days_left_message = "tomorrow";
+    }else if(days_left === 14){
+      days_left_message = "in two weeks";
+    }else if(days_left === 30){
+      days_left_message = "in one month";
+    }else if(days_left === 60){
+      days_left_message = "in two months";
+    }else{
+      days_left_message = "in "+days_left+" days";
+    }
+
+    var message = "Reminder: "+reminder_name+" will arrive at the  Green's house "+days_left_message+", on "+moveIn+".\n";
+    return message;
+  };
+
+  var checkAndSendMovein = function(daysLeft){
+    // Loop over the days left till movein values
+    for (var i = 0; i <= numRows-1; i++) {
+      var days_left = days_left_movein[i][0];
+      if(days_left == daysLeft) {
+        // if it's exactly 5, do something with the data.
+        var reminder_name = guestNames[i][0];
+        var moveIn = moveInDate[i][0];
+        
+        msg = constructMessage(reminder_name, days_left, moveIn);
+        warning_count++;
+      }
+    }
+    
+    //send the email if specified # of days are left
+    if(warning_count) {
+      MailApp.sendEmail(emailsList, 
+          emailSubject, msg);
+    }
+
+  };
   
-  
+  checkAndSendMovein(5);
+
   // Loop over the days left till movein values
   for (var i = 0; i <= numRows-1; i++) {
     var days_left = days_left_movein[i][0];
