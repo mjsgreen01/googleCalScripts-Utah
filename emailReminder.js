@@ -64,7 +64,7 @@ function checkReminder() {
   };
 
   // grab column 5 (the 'days left' till movein column) 
-  var days_left_values = grabColumnValues(2,5);
+  var days_left_movein = grabColumnValues(2,5);
   
   // grab column 6 (the 'days left' till moveout column) 
   var days_left_moveout = grabColumnValues(2,6);
@@ -99,7 +99,7 @@ function checkReminder() {
   
   // Loop over the days left till movein values
   for (var i = 0; i <= numRows-1; i++) {
-    var days_left = days_left_values[i][0];
+    var days_left = days_left_movein[i][0];
     if(days_left == 5) {
       // if it's exactly 5, do something with the data.
       var reminder_name = reminder_info_values[i][0];
@@ -121,7 +121,7 @@ function checkReminder() {
   
     // Loop over the days left till movein values
   for (var i = 0; i <= numRows-1; i++) {
-    var days_left = days_left_values[i][0];
+    var days_left = days_left_movein[i][0];
     if(days_left == 1) {
       // if it's exactly 1, do something with the data.
       var reminder_name = reminder_info_values[i][0];
@@ -143,7 +143,7 @@ function checkReminder() {
   
   // Loop over the days left till movein values
   for (var i = 0; i <= numRows-1; i++) {
-    var days_left = days_left_values[i][0];
+    var days_left = days_left_movein[i][0];
     if(days_left == 14) {
       // if it's exactly 14, do something with the data.
       var reminder_name = reminder_info_values[i][0];
@@ -165,7 +165,7 @@ function checkReminder() {
   
   // Loop over the days left till movein values
   for (var i = 0; i <= numRows-1; i++) {
-    var days_left = days_left_values[i][0];
+    var days_left = days_left_movein[i][0];
     if(days_left == 60) {
       // if it's exactly 60, do something with the data.
       var reminder_name = reminder_info_values[i][0];
@@ -188,7 +188,7 @@ function checkReminder() {
   
     // Loop over the days left till movein values
   for (var i = 0; i <= numRows-1; i++) {
-    var days_left = days_left_values[i][0];
+    var days_left = days_left_movein[i][0];
     if(days_left == 30) {
       // if it's exactly 30, do something with the data.
       var reminder_name = reminder_info_values[i][0];
