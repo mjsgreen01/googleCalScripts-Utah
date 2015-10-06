@@ -76,7 +76,7 @@ function checkReminder() {
   var moveOutDate = grabColumnValues(2,4);
   
   // Now, grab the reminder name column
-  var reminder_info_values = grabColumnValues(2,1);
+  var guestNames = grabColumnValues(2,1);
   
   
   var emailsList = "mjsgreen01@gmail.com,dmj133@juno.com,sdmjgreen@gmail.com,kris_aoay@yahoo.com,jsw.weinberg@gmail.com";
@@ -102,7 +102,7 @@ function checkReminder() {
     var days_left = days_left_movein[i][0];
     if(days_left == 5) {
       // if it's exactly 5, do something with the data.
-      var reminder_name = reminder_info_values[i][0];
+      var reminder_name = guestNames[i][0];
       var moveIn = moveInDate[i][0];
       
       msg = msg + "Reminder: "+reminder_name+" will arrive at the  Green's house in "+days_left+" days, on "+moveIn+".\n";
@@ -124,7 +124,7 @@ function checkReminder() {
     var days_left = days_left_movein[i][0];
     if(days_left == 1) {
       // if it's exactly 1, do something with the data.
-      var reminder_name = reminder_info_values[i][0];
+      var reminder_name = guestNames[i][0];
       var moveIn = moveInDate[i][0];
       
       msg6 = msg6 + "Reminder: "+reminder_name+" will arrive at the  Green's house tomorrow, on "+moveIn+".\n";
@@ -146,7 +146,7 @@ function checkReminder() {
     var days_left = days_left_movein[i][0];
     if(days_left == 14) {
       // if it's exactly 14, do something with the data.
-      var reminder_name = reminder_info_values[i][0];
+      var reminder_name = guestNames[i][0];
       var moveIn = moveInDate[i][0];
       
       msg5 = msg5 + "Reminder: "+reminder_name+" will arrive at the  Green's house in two weeks, on "+moveIn+".\n";
@@ -168,7 +168,7 @@ function checkReminder() {
     var days_left = days_left_movein[i][0];
     if(days_left == 60) {
       // if it's exactly 60, do something with the data.
-      var reminder_name = reminder_info_values[i][0];
+      var reminder_name = guestNames[i][0];
       var moveIn = moveInDate[i][0];
       
       msg3 = msg3 + "Reminder: "+reminder_name+" will arrive at the Green's house in two months, on "+moveIn+".\n";
@@ -191,7 +191,7 @@ function checkReminder() {
     var days_left = days_left_movein[i][0];
     if(days_left == 30) {
       // if it's exactly 30, do something with the data.
-      var reminder_name = reminder_info_values[i][0];
+      var reminder_name = guestNames[i][0];
       var moveIn = moveInDate[i][0];
       
       msg4 = msg4 + "Reminder: "+reminder_name+" will arrive at the Green's house in one month, on "+moveIn+".\n";
@@ -214,7 +214,7 @@ function checkReminder() {
     var days_left_out = days_left_moveout[i][0];
     if(days_left_out == 3) {
       // if it's exactly 3, do something with the data.
-      var reminder_name = reminder_info_values[i][0];
+      var reminder_name = guestNames[i][0];
       var moveOut = moveOutDate[i][0];
       
       msg2 = msg2 + "Reminder: "+reminder_name+" will check out of the Green's house in "+days_left_out+" days, on "+moveOut+".\n";
@@ -237,7 +237,7 @@ function checkReminder() {
     var days_left_out = days_left_moveout[i][0];
     if(days_left_out == 1) {
       // if it's exactly 1, do something with the data.
-      var reminder_name = reminder_info_values[i][0];
+      var reminder_name = guestNames[i][0];
       var moveOut = moveOutDate[i][0];
       
       msg7 = msg7 + "Reminder: "+reminder_name+" will check OUT of the Green's house tomorrow, on "+moveOut+".\n";
