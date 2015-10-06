@@ -92,6 +92,8 @@ function checkReminder() {
   var constructMessage = function(movingIn, reminder_name, days_left, moveIn){
     if(days_left === 1){
       days_left_message = "tomorrow";
+    }else if(days_left === 7){
+      days_left_message = "in one week";
     }else if(days_left === 14){
       days_left_message = "in two weeks";
     }else if(days_left === 30){
@@ -161,7 +163,7 @@ function checkReminder() {
   checkAndSendMovein(true, 1);
   
   
-  checkAndSendMovein(true, 5);
+  checkAndSendMovein(true, 7);
   
   
   checkAndSendMovein(true, 14);
