@@ -80,6 +80,7 @@ function checkReminder() {
   
   
   var emailsList = "mjsgreen01@gmail.com,dmj133@juno.com,sdmjgreen@gmail.com,kris_aoay@yahoo.com,jsw.weinberg@gmail.com";
+  var emailSubject = "Green House Rental Reminder";
   var warning_count = 0;
   var warning_count2 = 0;
   var warning_count3 = 0;
@@ -112,7 +113,7 @@ function checkReminder() {
   //send the email if specified # of days are left
   if(warning_count) {
     MailApp.sendEmail(emailsList, 
-        "Green House Rental Reminder", msg);
+        emailSubject, msg);
   }
   
   
@@ -134,7 +135,7 @@ function checkReminder() {
   //send the email if specified # of days are left
   if(warning_count6) {
     MailApp.sendEmail(emailsList, 
-        "Green House Rental Reminder", msg6);
+        emailSubject, msg6);
   }
   
   
@@ -156,7 +157,7 @@ function checkReminder() {
   //send the email if specified # of days are left
   if(warning_count5) {
     MailApp.sendEmail(emailsList, 
-        "Green House Rental Reminder", msg5);
+        emailSubject, msg5);
   }
   
   
@@ -178,7 +179,7 @@ function checkReminder() {
   //send the email if specified # of days are left
   if(warning_count3) {
     MailApp.sendEmail(emailsList, 
-        "Green House Rental Reminder", msg3);
+        emailSubject, msg3);
   }
   
   
@@ -201,7 +202,7 @@ function checkReminder() {
   //send the email if specified # of days are left
   if(warning_count4) {
     MailApp.sendEmail(emailsList, 
-        "Green House Rental Reminder", msg4);
+        emailSubject, msg4);
   }
   
   
@@ -224,7 +225,7 @@ function checkReminder() {
   //send the email if specified # of days are left
   if(warning_count2) {
     MailApp.sendEmail(emailsList, 
-        "Green House Rental Reminder", msg2);
+        emailSubject, msg2);
   }
   
   
@@ -247,7 +248,7 @@ function checkReminder() {
   //send the email if specified # of days are left
   if(warning_count7) {
     MailApp.sendEmail(emailsList, 
-        "Green House Rental Reminder", msg7);
+        emailSubject, msg7);
   }
 
 
