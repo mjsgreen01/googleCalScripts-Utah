@@ -89,7 +89,11 @@ function checkReminder() {
   var message = "";
   var days_left_message = "";
 
-  var constructMessage = function(movingIn, reminder_name, days_left, moveIn){
+  /**
+  * Construct email-body message based on number of days left
+  * first param is T/F - if F, the person is moving out, not in
+  */
+  var constructMessage = function(movingIn, reminder_name, days_left, date){
     if(days_left === 1){
       days_left_message = "tomorrow";
     }else if(days_left === 7){
@@ -105,14 +109,17 @@ function checkReminder() {
     }
 
     if(movingIn){
-      message = "Reminder: "+reminder_name+" will arrive at the Green's house "+days_left_message+", on "+moveIn+".\n";
+      message = "Reminder: "+reminder_name+" will arrive at the Green's house "+days_left_message+", on "+date+".\n";
     }else{
-      message = "Reminder: "+reminder_name+" will check OUT of the Green's house "+days_left_message+", on "+moveIn+".\n";
+      message = "Reminder: "+reminder_name+" will check OUT of the Green's house "+days_left_message+", on "+date+".\n";
     }
     return message;
   };
 
-  var checkAndSendMovein = function(movingIn, daysLeft){
+  /**
+  * Check if move-in reminder should be sent, and send it
+  */
+  var checkAndSendMovein = function(daysLeft){
     warning_count = 0;
     // Loop over the days left till movein values
     for (var i = 0; i <= numRows-1; i++) {
@@ -122,20 +129,23 @@ function checkReminder() {
         var reminder_name = guestNames[i][0];
         var moveIn = moveInDate[i][0];
         
-        msg = constructMessage(movingIn, reminder_name, days_left, moveIn);
+        msg = constructMessage(true, reminder_name, days_left, moveIn);
         warning_count++;
       }
     }
     
     //send the email if specified # of days are left
     if(warning_count) {
-      MailApp.sendEmail(emailsList, 
-          emailSubject, msg);
+      MailApp.sendEmail(emailsList, emailSubject, msg);
     }
 
   };
 
-  var checkAndSendMoveout = function(movingIn, daysLeft){
+
+  /**
+  * Check if move-in reminder should be sent, and send it
+  */
+  var checkAndSendMoveout = function(daysLeft){
     warning_count = 0;
     // Loop over the days left till moveout values
     for (var i = 0; i <= numRows-1; i++) {
@@ -145,48 +155,43 @@ function checkReminder() {
         var reminder_name = guestNames[i][0];
         var moveOut = moveOutDate[i][0];
         
-        msg = constructMessage(movingIn, reminder_name, days_left_out, moveOut);
+        msg = constructMessage(false, reminder_name, days_left_out, moveOut);
         warning_count++;
       }
     }
     
     //send the email if specified # of days are left
     if(warning_count) {
-      MailApp.sendEmail(emailsList, 
-          emailSubject, msg);
+      MailApp.sendEmail(emailsList, emailSubject, msg);
     }
 
   };
   
 
 
-  checkAndSendMovein(true, 1);
+  checkAndSendMovein(1);
   
   
-  checkAndSendMovein(true, 7);
+  checkAndSendMovein(7);
   
   
-  checkAndSendMovein(true, 14);
-  
-
-  checkAndSendMovein(true, 30);
-
-
-  checkAndSendMovein(true, 60);
-  
-  
+  checkAndSendMovein(14);
   
 
+  checkAndSendMovein(30);
 
-  checkAndSendMoveout(false, 3);
+
+  checkAndSendMovein(60);
   
-
-  checkAndSendMoveout(false, 1);
   
   
 
+  checkAndSendMoveout(3);
+  
 
-
+  checkAndSendMoveout(1);
+  
   
   
 }
+
