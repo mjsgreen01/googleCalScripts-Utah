@@ -80,6 +80,9 @@ function checkReminder() {
   
   // Now, grab the reminder name column
   var guestNames = grabColumnValues(2,1);
+
+  // Now, grab the number of people staying   
+  var numPeople = grabColumnValues(2,2);
   
   
   var emailsList = "mjsgreen01@gmail.com,dmj133@juno.com,sdmjgreen@gmail.com,kris_aoay@yahoo.com,jsw.weinberg@gmail.com";
@@ -93,7 +96,7 @@ function checkReminder() {
   * Construct email-body message based on number of days left
   * first param is T/F - if F, the person is moving out, not in
   */
-  var constructMessage = function(movingIn, reminder_name, days_left, date){
+  var constructMessage = function(movingIn, reminder_name, days_left, date, move_out_date, peopleInParty){
     if(days_left === 1){
       days_left_message = "tomorrow";
     }else if(days_left === 7){
@@ -109,7 +112,7 @@ function checkReminder() {
     }
 
     if(movingIn){
-      message = "Reminder: "+reminder_name+" will arrive at the Green's house "+days_left_message+", on "+date+".\n";
+      message = "Reminder: "+reminder_name+" will arrive at the Green's house as a party of "+peopleInParty+" "+days_left_message+", on "+date+", and will check out on "+move_out_date+"\n ";
     }else{
       message = "Reminder: "+reminder_name+" will check OUT of the Green's house "+days_left_message+", on "+date+".\n";
     }
@@ -128,8 +131,10 @@ function checkReminder() {
         // if it's exactly 5, do something with the data.
         var reminder_name = guestNames[i][0];
         var moveIn = moveInDate[i][0];
+        var moveOut = moveOutDate[i][0];
+        var peopleInParty = numPeople[i][0];
         
-        msg = constructMessage(true, reminder_name, days_left, moveIn);
+        msg = constructMessage(true, reminder_name, days_left, moveIn, moveOut, peopleInParty);
         warning_count++;
       }
     }
@@ -143,7 +148,7 @@ function checkReminder() {
 
 
   /**
-  * Check if move-in reminder should be sent, and send it
+  * Check if move-out reminder should be sent, and send it
   */
   var checkAndSendMoveout = function(daysLeft){
     warning_count = 0;
