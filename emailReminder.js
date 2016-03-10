@@ -92,11 +92,32 @@ function checkReminder() {
   var message = "";
   var days_left_message = "";
 
+
+  /**
+  * Normalize the dates
+  * Starts out in format "Mon Mar 21 2016 00:00:00 GMT-0400 (EDT)" (but as a Date object)
+  * Should end as "Mon Mar 21 2016"
+  */
+  var normalizeDate = function (date) {
+    if(date){
+      // get the cut-off point 
+      var stringEndIndex = date.toString().indexOf(" 00:00:00");
+      var normlizedDate = date.toString().slice(0, stringEndIndex);
+    }
+
+    return normlizedDate;
+  };
+
   /**
   * Construct email-body message based on number of days left
   * first param is T/F - if F, the person is moving out, not in
   */
   var constructMessage = function(movingIn, reminder_name, days_left, date, move_out_date, peopleInParty){
+    // normalize the date strings
+    date = normalizeDate(date);
+    move_out_date = normalizeDate(move_out_date);
+
+    // set dynamic text in message
     if(days_left === 1){
       days_left_message = "tomorrow";
     }else if(days_left === 7){
@@ -111,6 +132,7 @@ function checkReminder() {
       days_left_message = "in "+days_left+" days";
     }
 
+    // build the message
     if(movingIn){
       message = "Reminder: "+reminder_name+" will arrive at the Green's house as a party of "+peopleInParty+" "+days_left_message+", on "+date+", and will check out on "+move_out_date+"\n ";
     }else{
